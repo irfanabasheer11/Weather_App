@@ -1,0 +1,186 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background: #222;
+    background-image: url('weather-app-img/images/clouds-stars.avif');
+    background-size: cover; 
+    background-position: center center; 
+    background-attachment: fixed; 
+    background-repeat: no-repeat; 
+    height: 100vh;
+}
+
+.card {
+    width: 90%;
+    max-width: 470px;
+    background: linear-gradient(135deg, #00aaff, #ffffff); /* Blue to white gradient */
+    color: #333;
+    border-radius: 20px;
+    padding: 40px 35px;
+    text-align: center;
+    opacity: 0; /* Initially hidden for animation */
+    animation: fadeIn 1s ease-out forwards; /* Add fade-in animation */
+    position: fixed; /* Position fixed to keep it in place */
+    top: 50%; /* Vertically center */
+    left: 50%; /* Horizontally center */
+    transform: translate(-50%, -50%); /* Adjust for perfect centering */
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+.search {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: transform 0.5s ease-in-out; /* Smooth transition for search input */
+}
+
+.search:hover {
+    transform: scale(1.05); /* Slightly increase size on hover */
+}
+
+.search input {
+    border: 0;
+    outline: 0;
+    background: #e0f7fa; /* Light blue background */
+    color: #555;
+    padding: 10px 25px;
+    height: 60px;
+    border-radius: 30px;
+    flex: 1;
+    margin-right: 16px;
+    font-size: 18px;
+    transition: all 0.3s ease; /* Smooth transition on hover */
+}
+
+.search input:focus {
+    transform: scale(1.02);
+    box-shadow: 0 0 8px rgba(0, 170, 255, 0.6); /* Focus effect */
+}
+
+.search button {
+    border: 0;
+    outline: 0;
+    background: #ffffff; /* White background */
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    transition: transform 0.3s ease; /* Smooth transition for button */
+}
+
+.search button:hover {
+    transform: scale(1.1); /* Scale up the button on hover */
+}
+
+.search button img {
+    width: 16px;
+    transition: transform 0.2s ease;
+}
+
+.search button:hover img {
+    transform: rotate(180deg); /* Rotate the search icon when hovered */
+}
+
+.weather-icon {
+    width: 170px;
+    margin-top: 30px;
+    opacity: 0; /* Initially hidden for animation */
+    animation: fadeIn 1s ease-out 0.5s forwards; /* Add fade-in animation */
+}
+
+.weather h1 {
+    font-size: 80px;
+    font-weight: 500;
+    animation: slideIn 1s ease-out 1s forwards; /* Animation to slide the temperature */
+}
+
+.weather h2 {
+    font-size: 45px;
+    font-weight: 400;
+    margin-top: -10px;
+    animation: slideIn 1s ease-out 1.2s forwards; /* Animation to slide city name */
+}
+
+.details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    margin-top: 50px;
+    animation: fadeIn 1s ease-out 1.5s forwards; /* Fade-in animation for details */
+}
+
+.col {
+    display: flex;
+    align-items: center;
+    text-align: left;
+}
+
+.col img {
+    width: 40px;
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+}
+
+.col img:hover {
+    transform: scale(1.2); /* Scale up the icons on hover */
+}
+
+.humidity, .wind {
+    font-size: 28px;
+    margin-top: -6px;
+    transition: color 0.3s ease;
+}
+
+.humidity:hover, .wind:hover {
+    color: #00aaff; /* Change text color when hovered */
+}
+
+.weather {
+    display: none;
+    animation: fadeIn 1s ease-out 2s forwards; /* Add delay to show weather data */
+}
+
+.error {
+    text-align: left;
+    margin-left: 10px;
+    font-size: 14px;
+    margin-top: 10px;
+    display: none;
+}
+
+/* Keyframe animations */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(-30px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
